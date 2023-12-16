@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
-    console.log("okay");
     setOpen((prev) => !prev);
   };
   return (
