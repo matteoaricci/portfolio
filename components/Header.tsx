@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const toggleOpen = () => {
+  const toggleMenu = () => {
+    console.log("okay");
     setOpen((prev) => !prev);
   };
   return (
@@ -19,13 +20,13 @@ export default function Header() {
             <button>Contact</button>
           </section>
           <button className="font-bold uppercase text-lg">Matteo Ricci</button>
-          <button onClick={toggleOpen} className="text-right flex-1">
+          <button onClick={toggleMenu} className="text-right flex-1">
             Menu
           </button>
         </nav>
       </div>
-      <AnimatePresence>
-        {open && <PulloverMenu toggleMenu={toggleOpen} />}
+      <AnimatePresence mode="wait" initial={false}>
+        {open && <PulloverMenu key="menu" toggleMenu={toggleMenu} />}
       </AnimatePresence>
     </header>
   );
@@ -39,17 +40,17 @@ function PulloverMenu(props: PulloverMenuProps) {
   const { toggleMenu } = props;
   const wrapperVariants = {
     initial: {
-      scaleY: 0,
+      translateY: "-100%",
     },
     animate: {
-      scaleY: 1,
+      translateY: "0%",
       transition: {
         duration: 0.25,
       },
       originY: 0,
     },
     exit: {
-      scaleY: 0,
+      translateY: "-100%",
       transition: {
         duration: 0.25,
       },
@@ -62,7 +63,7 @@ function PulloverMenu(props: PulloverMenuProps) {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="fixed h-screen w-full bg-white uppercase z-[11]"
+      className="fixed h-screen w-full bg-white uppercase"
     >
       <section className="fixed content-center top-0 h-[4rem] flex w-full justify-between px-4 py-2 border-b-[1px] border-b-black">
         <button className="font-bold uppercase text-lg">Matteo Ricci</button>
