@@ -10,7 +10,7 @@ export default function Header() {
   };
   return (
     <header className="z-[10] relative">
-      <div className=" fixed top-0 h-[4rem] w-full">
+      <div className=" fixed top-0 h-[4rem] w-full bg-white">
         <nav className="h-full flex justify-between px-4 py-2 border-b-[1px] border-b-black">
           <section className="hidden md:flex flex-1 gap-3">
             <button>About</button>
