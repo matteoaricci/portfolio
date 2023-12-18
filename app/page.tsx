@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-[4rem] h-full">
+      <main className="pt-[4rem] mx-auto h-full max-w-5xl">
         <About />
         <Contact />
       </main>
